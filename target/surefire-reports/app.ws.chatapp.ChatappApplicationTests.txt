@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: app.ws.chatapp.ChatappApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.48 s - in app.ws.chatapp.ChatappApplicationTests
