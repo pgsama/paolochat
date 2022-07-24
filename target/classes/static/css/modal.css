@@ -1,0 +1,40 @@
+.modal{
+    background-color: #141414ad;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 10000;
+    transition: all 0.250s ease-in-out;
+    opacity: 0;
+
+}
+
+.modal-content{
+    background-color: var(--thirdcolor);
+    border-radius: 1rem;
+    border: 1px inset rgba(255, 255, 255, 0.144);
+    
+}
+
+.modal-header p{
+    text-align: center;
+}
+
+.modal-body input{
+    background-color: #222222;
+    margin: 1rem
+}
+
+.gone{
+    opacity: 0;
+
+}
+
+.enter
+{
+    opacity: 1;
+
+}

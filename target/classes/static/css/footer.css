@@ -1,0 +1,47 @@
+footer{
+    width: 100%;
+    height: calc(4rem + 10px);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+  
+  }
+#DockBar{
+    background-color: #624f6a32;
+    border: 1px inset #dcdcdc75;
+    border-radius: 5px;
+    top: 0.5rem;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    margin: 0 3rem;
+  }
+
+.items{
+  list-style: none;
+
+  display: flex;
+  list-style-position: inside;
+  flex-direction: row;
+  gap:2rem;
+}
+
+.items li{
+  max-width: 3rem;
+  max-height: 3rem;
+  
+}
+
+.dockImage{
+  width: 3rem;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(-.25rem);
+  position: relative;
+}
+
+.dockImage:hover{
+width: 5rem;
+transform: translateY(-2rem) translateX(-1rem);
+cursor: pointer;
+
+}
