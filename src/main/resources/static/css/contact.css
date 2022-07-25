@@ -139,6 +139,7 @@ transition: all 0.2s ease-in-out;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .wrap {

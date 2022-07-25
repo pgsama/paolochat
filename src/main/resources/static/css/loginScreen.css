@@ -1,3 +1,7 @@
+*{
+    transition: all 0.5s ease-in-out;
+}
+
 #loginScreen {
     width: 100%;
     height: 100%;
@@ -46,12 +50,14 @@ gap: 1rem;
     border-radius: 50%;
     position: relative;
     width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    background-color: white;
 
-    
 }
 
 #loginScreen .profile-group img:hover{
-width: 10rem;
+transform: scale(1.2);
 }
 
 #loginScreen .profile-group P{
