@@ -1,0 +1,25 @@
+
+.delete-group{
+    background-color: rgb(116, 116, 116);
+    color: rgb(201, 201, 201);
+    text-shadow: 1px 1px 1px black;
+    border-radius: 1rem;
+    font-size: 0.5rem;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.25rem;
+    margin: 1rem auto;
+}
+
+.delete-group:hover{
+    background-color: rgb(255, 101, 101);
+    transform: scale(1.25);
+    color: rgb(255, 188, 188);
+}
+
+.friendpage .container{
+    width: 15rem !important;
+}

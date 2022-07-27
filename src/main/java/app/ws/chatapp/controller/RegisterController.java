@@ -93,6 +93,7 @@ public class RegisterController {
 
     @PutMapping(value="api/updateuser/{id}")
     public User updateUser(@PathVariable String id, @RequestBody User user) {
+        user.set_id(id);
         return userRepository.save(user);
     }
 

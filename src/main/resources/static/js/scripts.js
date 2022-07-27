@@ -13,6 +13,8 @@ $(function () {
             minWidth: fontSize * 25,
         };
 
+    $("#contact-page").moveTopLeft();
+
 
         width = $(window).width();
         height = $(window).height();
@@ -27,6 +29,9 @@ $(function () {
 
     $("#contact-page").draggable();
     $("#contact-page").css("position", "absolute");
+    
+
+
 
     $("#addContact").click(function (event) {
         event.preventDefault();
@@ -63,8 +68,40 @@ $.fn.moveTopLeft = function () {
 
 
 $.fn.center = function () {
-    this.css("position", "relative");
+
     this.css("top", ($(window).height() - this.height()) / 5 + "px");
     this.css("left", ($(window).width() - this.width()) / 2 + "px");
     return this;
 }
+
+
+
+var showErrorModal = (type = "", message = "") => {
+    const MessageModal = document.querySelector("#MessageModal");
+    const modalimage = document.querySelector("#modal-image");
+  
+    switch (type) {
+        case "error":
+            modalimage.src = "/error.png";
+            break;
+        case "success":
+            modalimage.src = "/success.png";
+            break;
+        default:
+            modalimage.src = "/error.png";
+            break;
+    }
+  
+    const modaltext = document.querySelector("#modal-text");
+    modaltext.innerHTML = message;
+    MessageModal.classList.remove("hidden");
+    MessageModal.style.top = "0%";
+    setTimeout(function () {
+        MessageModal.style.top = "-50%";
+        setTimeout(function () {
+            MessageModal.classList.add("hidden");
+        }, 1300);
+    }
+    , 1100);
+  
+  }

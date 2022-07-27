@@ -2,13 +2,13 @@ footer{
     width: 100%;
     height: calc(4rem + 10px);
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
     display: flex;
   
   }
 #DockBar{
-    background-color: #624f6a32;
-    border: 1px inset #dcdcdc75;
+    background-color: #2e29306d;
+    border: 1px inset #cfcfcf3b;
     border-radius: 5px;
     top: 0.5rem;
     height: 100%;

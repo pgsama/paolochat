@@ -45,7 +45,7 @@ $(".arrowButton").click(function (e) {
             }
             else {
                 console.info("not found");
-                showErrorModal();
+                showErrorModal("error",`User named <br> '`+$("#loginInput").val()+`' not found`);
             }
         }
 
@@ -62,20 +62,6 @@ $(".arrowBack").click(function (e) {
 });
 
 
-function showErrorModal() {
-    const MessageModal = document.querySelector("#MessageModal");
-    MessageModal.classList.remove("hidden");
-    //MessageModal top 0%
-    MessageModal.style.top = "0%";
-    setTimeout(function () {
-        MessageModal.style.top = "-50%";
-        setTimeout(function () {
-            MessageModal.classList.add("hidden");
-        }, 1300);
-    }
-    , 1100);
-
-}
 
 function valid(e) {
     e.preventDefault();

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/css/loginScreen.css">
   <link rel="stylesheet" href="/css/modal.css">
   <link rel="stylesheet" href="/css/chat.css">
+  <link rel="stylesheet" href="/css/friend.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/css/base/jquery.ui.all.min.css"
     integrity="sha512-OHBxeI8iAKq327e6AmvA+2b03CuP0mzDyZTF8FcDXs4YNLZybm0sPqQPRwwEZ74a3mkGBNcrKOeFzfgiLCTwiA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -53,10 +54,10 @@
     <div class="modal2">
       <div class="window-content">
         <div class="image">
-          <img src="error.png" width="48px" alt="avatar" />
+          <img id="modal-image" src="error.png" width="48px" alt="avatar" />
         </div>
         <div class="modal-header">
-          <p>User Not Found</p>
+          <p id="modal-text">User Not Found</p>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    z-index: 10000;
+    z-index: 5000;
     transition: all 0.250s ease-in-out;
     opacity: 0;
 

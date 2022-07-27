@@ -1,6 +1,6 @@
 .messagemodal {
     position: fixed;
-    z-index: 100;
+    z-index: 10000;
     width: max-content ;
     text-align: center;
     right: 0;
@@ -11,6 +11,7 @@
     font-weight: bold;
     top:-50%;
     transition: all 0.5s ease;
+   
 }
 
 .active{
@@ -43,9 +44,16 @@
 
 .modal2 {
     border-radius: 5px 5px 5px 5px;
-    background: #b4b4b437;
+    background: #ffffff37;
     font-weight: bold;
     align-self: center;
+    padding: 0.5rem;
+    box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.211);
+}
+
+#modal-text{
+    font-size: 1rem;
+    text-shadow: 1px 1px 1px black;
 }
 
 .modal-header {

@@ -107,7 +107,7 @@ transition: all 0.2s ease-in-out;
     color:  var(---titlecolor);
 }
 
-#contactArea {
+#contactArea, #contactArea2 {
   list-style-type: none;
   background-color: var(--secondarycolor);
   margin: 0;
@@ -124,7 +124,7 @@ transition: all 0.2s ease-in-out;
   flex-direction: column;
 }
 
-#contactArea li {
+#contactArea li, #contactArea2 li {
   margin: 0;
   background-color: var(--color);
   text-align: left;
@@ -179,4 +179,13 @@ transition: all 0.2s ease-in-out;
 
 .toolbar i:hover {
   color: #949494;
+}
+
+#profile{
+background-color: var(--secondarycolor);
+}
+
+#profile:hover{
+opacity: 0.5;
+content: url("/changepicture.png");
 }

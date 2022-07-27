@@ -102,7 +102,6 @@ $(document).ready(function () {
 
 function showErrorModal() {
   document.querySelector("#MessageModal").classList.add("active");
-  //add fade class and remove after 3 seconds
   setTimeout(function () {
     document.querySelector("#MessageModal").classList.add("fade");
     setTimeout(function () {
