@@ -121,9 +121,9 @@ var showModal = (type = "", message = "" , user) => {
         MessageModal.style.top = "-50%";
         setTimeout(function () {
             MessageModal.classList.add("hidden");
-        }, 5101);
+        }, 2101);
     }
-    , 5100);
+    , 2100);
   
   
   }
