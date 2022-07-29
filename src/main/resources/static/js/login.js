@@ -1,6 +1,6 @@
 var filter = null;
 var loginForm = document.querySelector('#loginForm');
-var END_POINT = "http://localhost:8080";
+var END_POINT = "https://paolochat.herokuapp.com";
 
 
 //ready function jquery

@@ -8,7 +8,7 @@ var registerForm = document.querySelector("#registerForm");
 var stompClient = null;
 var user = null;
 
-var END_POINT = "http://localhost:8080";
+var END_POINT = "https://paolochat.herokuapp.com";
 
 var colors = [
   "#2196F3",
