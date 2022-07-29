@@ -1,4 +1,3 @@
-@import url(//db.onlinewebfonts.com/c/51b459eae74df5b00ba922028ccb20be?family=Password);
 
 #loginScreen {
     width: 100%;
@@ -184,5 +183,5 @@
 
 #passwordInput
     {
-        font-family: Password;
+       color: #d6d6d6d2;
     }
