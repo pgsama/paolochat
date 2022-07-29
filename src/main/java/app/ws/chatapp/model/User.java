@@ -28,6 +28,10 @@ public class User {
     @Field
     private List<Contact> contacts = new ArrayList<>();
 
+    public User(String _id) {
+        this._id = _id;
+    }
+
     public User() {
     }
 

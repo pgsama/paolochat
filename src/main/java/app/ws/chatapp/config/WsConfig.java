@@ -6,18 +6,24 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
+import app.ws.chatapp.handler.UserHandler;
+
 @Configuration
 @EnableWebSocketMessageBroker
 public class WsConfig implements WebSocketMessageBrokerConfigurer{
 
 	@Override
-	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/javatechie").withSockJS();
-	}
-	
-	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
 		registry.enableSimpleBroker("/topic");
 		registry.setApplicationDestinationPrefixes("/app");
 	}
+
+	@Override
+	public void registerStompEndpoints(StompEndpointRegistry registry) {
+		registry.addEndpoint("/ws")
+		.setHandshakeHandler(new UserHandler())
+		.withSockJS();
+	}
+	
+
 }

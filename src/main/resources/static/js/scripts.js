@@ -23,8 +23,12 @@ $(function () {
 
     }
 
-    $('html').css('font-size', fontSize);
+
     window.addEventListener('resize', reportWindowSize);
+
+    $('html').css('font-size', fontSize);
+
+
 
 
     $("#contact-page").draggable();
@@ -44,12 +48,14 @@ $(function () {
 
 
 $.fn.moveTopLeft = function () {
-    let c_width = $(window).width();
-    let c_height = $(window).height();
-    let t = $(this).offset().top;
-    let l = $(this).offset().left;
-    t = t.toFixed(0);
-    l = l.toFixed(0);
+    let l = 0
+    let t = 0;
+    let c_width = $(window)?.width();
+    let c_height = $(window)?.height();
+    t = $(this)?.offset()?.top;
+    l = $(this)?.offset()?.left;
+    t = t?.toFixed(0);
+    l = l?.toFixed(0);
     var newtop;
     var newleft;
     newtop = t * (100 / c_height);
@@ -61,14 +67,13 @@ $.fn.moveTopLeft = function () {
             left: newleft + "%"
         });
     }
-    width = $(window).width();
-    height = $(window).height();
+    width = $(window)?.width();
+    height = $(window)?.height();
 }
 
 
 
 $.fn.center = function () {
-
     this.css("top", ($(window).height() - this.height()) / 5 + "px");
     this.css("left", ($(window).width() - this.width()) / 2 + "px");
     return this;
@@ -77,6 +82,7 @@ $.fn.center = function () {
 
 
 var showErrorModal = (type = "", message = "") => {
+    
     const MessageModal = document.querySelector("#MessageModal");
     const modalimage = document.querySelector("#modal-image");
   

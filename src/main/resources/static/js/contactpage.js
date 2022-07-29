@@ -8,7 +8,9 @@ const addContact = () => {
 
     const newContact = {
       _id: data._id,
+
       username: data.username,
+      
     }
 
     user.contacts = [...contacts, newContact];
@@ -16,9 +18,12 @@ const addContact = () => {
     updateUser().then(console.log);
     
     showErrorModal("success", "Contact Added");
+    closeModal();
 
   }).catch((err) => {
+
     showErrorModal("error", "User not found");
+
   }
   );
 
@@ -35,9 +40,11 @@ var loadContacts = () => {
 };
 
 
+
 const drawContact = (user_data) => {
   getUser(user_data).then((data) => {
     const contact = document.createElement("li");
+    contact.id = data._id;
     contact.classList.add("contact");
     contact.innerHTML = `
               <div class="wrap">
@@ -47,7 +54,7 @@ const drawContact = (user_data) => {
               <div class="meta">
               <p class="name">${data.username}</p>
               <div class="input-group">
-              <span onclick="newChatPage()"><i class="fa fa-comments" style="font-size:1rem;" aria-hidden="true"></i></span>
+              <span onclick="newChatPage('${data._id}')"><i class="fa fa-comments" style="font-size:1rem;" aria-hidden="true"></i></span>
               <span onclick="newFriendPage('${data._id}')"><i class="fa fa-user" aria-hidden="true"></i></span>
               </div>
               </div>
@@ -55,4 +62,13 @@ const drawContact = (user_data) => {
     document.querySelector("#contactArea").appendChild(contact);
 
   });
+}
+
+const closeContactPage = () => {
+  $("#contact-page").addClass("animate__zoomOut");
+  setTimeout(function () {
+    $("#contact-page").hide();
+    $("#contact-page").removeClass("animate__zoomOut");
+    
+  }, 500);
 }

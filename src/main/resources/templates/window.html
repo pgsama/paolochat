@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width" />
     <title>Paolo Chat</title>
     <link rel="stylesheet" href="/css/main-window.css" />
-    <link rel="stylesheet" href="/css/sidebar.css" />
+
     <link rel="stylesheet" href="/css/drag.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/contact.css" />
-    <link rel="stylesheet" href="/css/modal.css">
-    <link rel="stylesheet" href="/css/chat.css">
-    <link rel="stylesheet" href="/css/friend.css">
-    
+    <link rel="stylesheet" href="/css/modal.css" />
+    <link rel="stylesheet" href="/css/chat.css" />
+    <link rel="stylesheet" href="/css/friend.css" />
+    <link rel="stylesheet" href="/css/loginScreen.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/css/base/jquery.ui.all.min.css"
         integrity="sha512-OHBxeI8iAKq327e6AmvA+2b03CuP0mzDyZTF8FcDXs4YNLZybm0sPqQPRwwEZ74a3mkGBNcrKOeFzfgiLCTwiA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-</head>
 
+</head>
 
 <body>
 
@@ -47,55 +45,40 @@
     <div id="contact-page"
         class="ui-draggable ui-draggable-handle hidden animate__animated animate__zoomIn animate__faster">
         <div class="window-header">
-            <span class="close">X</span>
+            <span onclick="closeContactPage()" class="close">X</span>
             <span class="minimize">—</span>
             <span class="disabled">▢</span>
         </div>
         <div class="container ui-resizable">
-            <div class="profile" style="height: 100%;">
+            <div class="profile" style="height: 100%">
                 <div class="profile-content">
-                    <img id="profile" src="/picture.png" onclick="openPictureModal()"
-                        style="width:5rem; height:5rem; border-radius:50%; object-fit: cover;" alt="">
-                    <p id="main-username" style="font-weight: bolder;">
+                    <img id="profile" src="/picture.png" ondblclick="openPictureModal()" style="
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
+                object-fit: cover;
+              " alt="" />
+                    <p id="main-username" style="font-weight: bolder"></p>
+                    <p class="friends" style="font-size: 1rem; font-weight: bolder">
+                        0<br /><small style="font-weight: lighter; color: var(--fontcolor)">friends</small>
                     </p>
-                    <p class="friends" style="font-size: 1rem; font-weight: bolder;">0<br><small
-                            style="font-weight: lighter; color:var(--fontcolor);">friends</small></p>
                     <hr />
                     <div class="toolbar">
                         <p>Add Friend</p>
                         <i onclick="openModal()" class="fa fa-plus-square" aria-hidden="true"></i>
-                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        <i onclick="notAvailable()" class="fa fa-cog" aria-hidden="true"></i>
                     </div>
-
                 </div>
                 <div class="contacts">
                     <ul id="contactArea">
-                        <!-- <li>
-                            <div class="wrap"><span class="contact-status online"></span><img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSATbL5Aoswf2GP1hEtF3D2OswHskk9WPHacEgZLCwEepblM7yQgtBlNR2PVXgvK97LsPk&usqp=CAU"
-                                    alt="" />
-                                <div class="meta">
-                                    <p class="name">Estrella</p>
-                                    <div class="input-group">
-                                        <span onclick="newChatPage()"><i class="fa fa-comments" style="font-size:1rem;" aria-hidden="true"></i></span>
-
-                                        <span onclick="newFriendPage()"><i class="fa fa-user" aria-hidden="true"></i></span>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </li> -->
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-
-
     <footer>
-        <div id="DockBar" class="dockbar animate__animated animate__fadeInUpBig animate__faster">
+        <div id="DockBar" class="dockbar hidden">
             <div class="dockbar-container">
                 <ul class="items">
                     <li rel="contact">
@@ -109,14 +92,9 @@
             </div>
         </div>
     </footer>
-
-
-
 </body>
 
 </html>
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
@@ -129,3 +107,5 @@
 <script src="/js/managedata.js"></script>
 <script src="/js/friendpage.js"></script>
 <script src="/js/contactpage.js"></script>
+<script src="/js/settingpage.js"></script>
+<script src="/js/loading.js"></script>

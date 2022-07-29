@@ -1,9 +1,13 @@
 function showWelcome(){
+    
+    const localUser = localStorage.getItem("user")
+    const json = eval("filter = "+ localUser)
+
     var newDiv = document.createElement("div");
     newDiv.id = "welcome-group";
     var newP = document.createElement("p");
     newP.id = "welcome-text";
-    newP.innerHTML = "Welcome to the chat";
+    newP.innerHTML = `<i class="fa-solid fa-chalkboard-user"></i> Welcome ${json.username}!`
     newDiv.appendChild(newP);
     document.body.appendChild(newDiv);
     setTimeout(function () {
@@ -14,4 +18,5 @@ function showWelcome(){
             }, 6000);
         }, 1000);
         });
+        
     }

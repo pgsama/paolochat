@@ -4,13 +4,13 @@
     color: rgb(201, 201, 201);
     text-shadow: 1px 1px 1px black;
     border-radius: 1rem;
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     width: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 0.25rem;
+    padding: 0.1rem;
     margin: 1rem auto;
 }
 

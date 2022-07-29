@@ -1,6 +1,19 @@
 var filter = null;
-
 var loginForm = document.querySelector('#loginForm');
+var END_POINT = "http://localhost:8080";
+
+
+//ready function jquery
+$(document).ready(function () {
+
+    const localUser = localStorage.getItem("user");
+    const json = eval("filter = " + localUser);
+    if(localUser){
+    window.location.href = END_POINT+"/window/" + json?._id;
+    }
+});
+
+
 
 $(".arrowButton").click(function (e) {
     e.preventDefault();
@@ -13,7 +26,7 @@ $(".arrowButton").click(function (e) {
         $("#beeperror").get(0).play();
     }
     let api = new XMLHttpRequest();
-    let url = "http://localhost:8080/api/alluser";
+    let url = END_POINT+"/api/alluser";
     api.open("GET", url, true);
     api.send();
     api.onreadystatechange = function () {
@@ -65,7 +78,18 @@ $(".arrowBack").click(function (e) {
 
 function valid(e) {
     e.preventDefault();
-    intent();
+    const passwordInput = $("#passwordInput").val();
+    
+    if (passwordInput == filter.password) {
+        localStorage.setItem("user", JSON.stringify(filter));
+        intent();
+    }
+
+    else{
+        showErrorModal("error",`Password incorrect`);
+    }
+
+
 }
 
 function intent() {
@@ -75,7 +99,7 @@ function intent() {
     setTimeout(function () {
         showWelcome();
         setTimeout(function () {
-            window.location.href = "http://localhost:8080/window/" + filter._id;
+            window.location.href = END_POINT+"/window/" + filter._id;
         }
             , 3500);
     }, 2000);

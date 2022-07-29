@@ -63,6 +63,7 @@
   display: flex;
   justify-content: space-around;
   margin-top: 0.3rem;
+  align-items: center;
 }
 
 .input-group i {
@@ -74,12 +75,12 @@
   display: flex;
   background-color: var(--fontcolor);
   border-radius: 50%;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .input-group i:hover {
   background-color: #3d3d3d;
-  color: var(---titlecolor);
+  color: var(--titlecolor);
 }
 
 .input-group{
@@ -97,14 +98,14 @@ justify-content: center;
 display: flex;
 background-color: var(--fontcolor);
 border-radius: 50%;
-transition: all 0.2s ease-in-out;
+transition: all 0.1s ease-in-out;
 
 }
 
 
 .input-group i:hover{
     background-color: #3d3d3d;
-    color:  var(---titlecolor);
+    color:  var(--titlecolor);
 }
 
 #contactArea, #contactArea2 {
@@ -132,7 +133,7 @@ transition: all 0.2s ease-in-out;
   border-radius: 10px;
   padding: 0.25rem;
   width: 12.5rem;
-  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.033);
+  box-shadow: 0.25rem  0.25rem  0.25rem rgba(0, 0, 0, 0.22);
 }
 
 .wrap img {
@@ -148,8 +149,13 @@ transition: all 0.2s ease-in-out;
   align-items: center;
 }
 
+.meta {
+ width: 50%;
+}
+
 .meta .name {
   margin: 0 1rem;
+  text-align: center;
   font-size: smaller;
   font-weight: bold;
   color: var(--fontcolor);

@@ -23,34 +23,38 @@ public class ChatController {
 	@Autowired
 	UserRepository userRepository;
 
-	@MessageMapping("/chat.register")
-	@SendTo("/topic/public")
-	public ChatMessage register(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+	// @MessageMapping("/chat.register")
+	// @SendTo("/topic/public")
+	// public ChatMessage register(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+	// 	headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
+	// 	return chatMessage;
+	// }
+
+	// @MessageMapping("/chat.send")
+	// @SendTo("/topic/public")
+	// public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+	// 	return chatMessage;
+	// }
+
+	
+	@MessageMapping("/chat.register/{username}")
+	@SendTo("/topic/private/{username}")
+	public ChatMessage privateRegister(@Payload ChatMessage chatMessage,
+	SimpMessageHeaderAccessor headerAccessor,
+	@PathVariable("username") String username) {
+
 		headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
 		return chatMessage;
 	}
 
-	@MessageMapping("/chat.send")
-	@SendTo("/topic/public")
-	public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+	@MessageMapping("/chat.send/{username}")
+	@SendTo("/topic/private/{username}")
+	public ChatMessage sendPrivateMessage(@Payload ChatMessage chatMessage,
+	@PathVariable("username") String username) {
+
 		return chatMessage;
 	}
 
-	@GetMapping("/")
-    public ModelAndView home() {
-        return new ModelAndView("index")
-                .addObject("user", new User());
-    }
 
-	@GetMapping("/window/{id}")
-    public ModelAndView home2(@PathVariable("id") String id) {
-		return new ModelAndView("window")
-				.addObject("id", id);
-	}
-	//same for demo
-	@GetMapping("/demo")
-	public ModelAndView home3() {
-		return new ModelAndView("demo")
-				.addObject("user", new User());
-	}
+
 }

@@ -1,4 +1,5 @@
 .messagemodal {
+
     position: fixed;
     z-index: 10000;
     width: max-content ;
@@ -11,7 +12,7 @@
     font-weight: bold;
     top:-50%;
     transition: all 0.5s ease;
-   
+
 }
 
 .active{
@@ -43,8 +44,9 @@
 }
 
 .modal2 {
+
     border-radius: 5px 5px 5px 5px;
-    background: #ffffff37;
+    background: #0d1126d2;
     font-weight: bold;
     align-self: center;
     padding: 0.5rem;

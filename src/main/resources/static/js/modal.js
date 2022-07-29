@@ -23,11 +23,11 @@ function openModal() {
     </div>
 
     <div class="modal-header">
-        <p>Add Friend by Code</p>
+        <p>Add Friend by Name</p>
         
     </div>
     <form  class="modal-body" id="friendForm" name="friendForm" nameForm="Form" onsubmit="addContact();return false" >
-        <input id="Code" type="text" placeholder="enter code friend"/>
+        <input id="Code" type="text" placeholder="enter friend's name"/>
         <button class="hidden" type="submit"></button>
     </form>
     <div class="modal-footer">
@@ -44,52 +44,17 @@ function openModal() {
   setTimeout(() => {
     modal.classList.add("enter");
   }, 1);
+  const Code = document.getElementById("Code");
+  Code.focus();
+   
 }
-
-
-const openUrlModal = () => {
-  const html = `        
-    <div class="modal-content">
-    <div class="window-header">
-        <span onclick="closeModal()" class="close">X</span>
-        <span class="disabled">—
-            
-        </span>
-        <span class="disabled">▢</span>
-    </div>
-
-    <div class="modal-header">
-        <p>CHANGE YOUR BACKGROUND</p>
-        
-    </div>
-    <form  class="modal-body" id="urlForm" name="urlForm" nameForm="urlForm" onsubmit="changeBackground();return false" >
-        <input id="Code" type="text" placeholder="Enter new url background"/>
-        <button class="hidden" type="submit"></button>
-    </form>
-    <div class="modal-footer">
-    </div>
-    </div>`;
-
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
-  modal.innerHTML = html;
-  modal.id = "Modal";
-  const body = document.querySelector("body");
-  body.appendChild(modal);
-  setTimeout(() => {
-    modal.classList.add("enter");
-  }, 100);
-};
-
 
 const openPictureModal = () => {
   const html = `        
     <div class="modal-content">
     <div class="window-header">
         <span onclick="closeModal()" class="close">X</span>
-        <span class="disabled">—
-            
-        </span>
+        <span class="disabled">— </span>
         <span class="disabled">▢</span>
     </div>
 
@@ -113,12 +78,15 @@ const openPictureModal = () => {
   body.appendChild(modal);
   setTimeout(() => {
     modal.classList.add("enter");
-  }, 100);
+  }, 1);
+  const Code = document.getElementById("Code");
+  Code.focus();
+   
 };
 
 
 const updateUser =  async () => {
-  const response = await fetch("http://localhost:8080/api/updateuser/"+user._id, {
+  const response = await fetch(END_POINT+"/api/updateuser/"+user._id, {
     method: "PUT",
     headers: {
 
@@ -132,12 +100,8 @@ const updateUser =  async () => {
   return data;
 };
 
-
-///////////////////////////////////////////////////////////////////////////////////////////
-
-
 const changeBackground = (e) => {
-
+  
  const Code = document.querySelector("#Code").value;
   user.bg = Code;
   document.querySelector("body").style.backgroundImage = `url(${Code})`;
@@ -148,5 +112,59 @@ const changeBackground = (e) => {
 }
 
 const changePicture = (e) => {
+  const Code = document.querySelector("#Code").value;
+  user.picture = Code;
+  document.querySelector("#profile").src = Code;
+  updateUser().then(console.log);
+  showErrorModal("success","Picture changed");
   
+  setTimeout(() => {
+    closeModal();
+  
+  }, 100);
 
+}
+
+var notAvailable = () => {
+
+  showErrorModal("error","This feature is not available yet");
+  
+//   const html = `        <div class="modal-content">
+//   <div class="window-header">
+//       <span onclick="closeModal()" class="close">X</span>
+//       <span class="disabled">—
+
+//       </span>
+//       <span class="disabled">▢</span>
+//   </div>
+
+//   <div class="modal-header">
+//       <h2>At the moment this is not aviable</h2>
+
+//   </div>
+
+//   <div class="modal-body" id="friendForm" name="friendForm" nameForm="Form"
+//       onsubmit="addContact();return false">
+//       <p style="text-align: center; color: var(--titlecolor);"> working on new updates</p>
+//   </div>
+
+//   <div class="modal-footer">
+//   </div>
+// </div>`
+
+// const modal = document.createElement("div");
+// modal.classList.add("modal");
+// modal.innerHTML = html;
+// modal.id = "Modal";
+// const body = document.querySelector("body");
+// body.appendChild(modal);
+
+// setTimeout(() => {
+//   modal.classList.add("enter");
+// }, 100);
+
+// setTimeout(() => {
+//   closeModal();
+// }, 1000);
+
+}
