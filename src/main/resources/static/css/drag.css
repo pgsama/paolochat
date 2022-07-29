@@ -56,6 +56,10 @@
 #modal-text{
     font-size: 1rem;
     text-shadow: 1px 1px 1px black;
+    font-family: 'Courier New', Courier, monospace;
+    word-wrap: break-word;
+    max-width: 15rem;
+    margin: 1rem 0;
 }
 
 .modal-header {
@@ -64,7 +68,7 @@
     margin: 0 1rem;
     align-items: center;
     position: relative;
-    display: grid;
+    display: inline;
 }
 
 .window-content{

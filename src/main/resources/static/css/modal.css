@@ -174,3 +174,10 @@ hr{
     font-size: 1.25rem;
     text-decoration: underline;
 }
+
+#modal-image{
+    border-radius: 1rem;
+object-fit: cover;
+width: 5rem;
+height: 5rem;
+}

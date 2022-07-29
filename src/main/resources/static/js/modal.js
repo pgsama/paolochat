@@ -105,8 +105,8 @@ const changeBackground = (e) => {
  const Code = document.querySelector("#Code").value;
   user.bg = Code;
   document.querySelector("body").style.backgroundImage = `url(${Code})`;
-  updateUser().then(console.log);
-  showErrorModal("success","Background changed");
+  updateUser().then();
+  showModal("success","Background changed");
   closeModal();
 
 }
@@ -115,8 +115,8 @@ const changePicture = (e) => {
   const Code = document.querySelector("#Code").value;
   user.picture = Code;
   document.querySelector("#profile").src = Code;
-  updateUser().then(console.log);
-  showErrorModal("success","Picture changed");
+  updateUser().then();
+  showModal("success","Picture changed");
   
   setTimeout(() => {
     closeModal();
@@ -127,7 +127,7 @@ const changePicture = (e) => {
 
 var notAvailable = () => {
 
-  showErrorModal("error","This feature is not available yet");
+  showModal("error","This feature is not available yet");
   
 //   const html = `        <div class="modal-content">
 //   <div class="window-header">

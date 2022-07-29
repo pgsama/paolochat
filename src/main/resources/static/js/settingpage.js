@@ -107,7 +107,8 @@ function settingPage () {
             <li class="release-item">Delete and Hard Reset to own account</li>
             <li class="release-item">Register form</li>
             <li class="release-item">Update own information form</li>
-            <li class="release-item">Stickers and Gifts</li>
+            <li class="release-item">Stickers and Gifs</li>
+            <li class="release-item">Still many missing features</li>
         </ol>
     </div>
 

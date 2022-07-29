@@ -1,6 +1,6 @@
 var filter = null;
 var loginForm = document.querySelector('#loginForm');
-var END_POINT = "https://paolochat.herokuapp.com";
+var END_POINT = "https://paolochat.herokuapp.com;
 
 
 //ready function jquery
@@ -58,7 +58,7 @@ $(".arrowButton").click(function (e) {
             }
             else {
                 console.info("not found");
-                showErrorModal("error",`User named <br> '`+$("#loginInput").val()+`' not found`);
+                showModal("error",`User named <br> '`+$("#loginInput").val()+`' not found`);
             }
         }
 
@@ -86,7 +86,7 @@ function valid(e) {
     }
 
     else{
-        showErrorModal("error",`Password incorrect`);
+        showModal("error",`Password incorrect`);
     }
 
 

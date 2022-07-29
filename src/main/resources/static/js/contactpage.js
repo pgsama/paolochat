@@ -15,14 +15,14 @@ const addContact = () => {
 
     user.contacts = [...contacts, newContact];
 
-    updateUser().then(console.log);
+    updateUser().then();
     
-    showErrorModal("success", "Contact Added");
+    showModal("success", "Contact Added");
     closeModal();
 
   }).catch((err) => {
 
-    showErrorModal("error", "User not found");
+    showModal("error", "User not found");
 
   }
   );

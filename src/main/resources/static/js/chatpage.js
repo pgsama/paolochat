@@ -5,7 +5,7 @@ function newChatPage(param ) {
     if (!$("#chat-page-" + param).length > 0) {
     const html = `
     <div class="window-header">
-    <div style="display:flex;">
+    <div style="display:flex; z-index:1;">
     <span onclick="closeChatPage('${param}')" class="close">X</span>
     <span class="minimize disabled">—</span>
     <span onclick="expandChatPage('${param}')" class="expand">▢</span>
@@ -136,6 +136,7 @@ function printMessage(message, param, to) {
     if (message.match(regex2)) {
       textElement = document.createElement("img");
       textElement.classList.add("message-image");
+      textElement.alt = "loading...";
       textElement.src = message;
     } 
     else if (message.match(regex)) {

@@ -7,19 +7,9 @@ var contactArea = document.querySelector("#contactArea");
 var registerForm = document.querySelector("#registerForm");
 var stompClient = null;
 var user = null;
-
 var END_POINT = "https://paolochat.herokuapp.com";
-
-var colors = [
-  "#2196F3",
-  "#32c787",
-  "#00BCD4",
-  "#ff5652",
-  "#ffc107",
-  "#ff85af",
-  "#FF9800",
-  "#39bbb0",
-];
+// https://paolochat.herokuapp.com
+// http://localhost:8080
 
 function connect(user2) {
   user = user2;
@@ -64,24 +54,40 @@ function send(event, to) {
 
     stompClient.send("/app/chat.send/" + to, {}, JSON.stringify(chatMessage));
     printMessage(messageContent, user._id ,to);
+
+    const audio = new Audio('/sounds/sending.mp3');
+    audio.loop = false;
+    audio.play(); 
+
     messageInput.value = "";
   }
 }
 
 function onMessageReceived(payload) {
-
   const json = JSON.parse(payload.body);
+
+  const chatPage = document.querySelector("#chat-page-"+json.sender);
+
+  if (!chatPage) {
+  const audio = new Audio('/sounds/notification.mp3');
+  audio.loop = false;
+  audio.play();
+  
+  getUser(json.sender).then((res) => {
+  showModal("", json.content,res);});
+}
+
   printMessage(json.content, json.sender, json.sender);
 
 }
 
-function showErrorModal() {
-  document.querySelector("#MessageModal").classList.add("active");
-  setTimeout(function () {
-    document.querySelector("#MessageModal").classList.add("fade");
-    setTimeout(function () {
-      document.querySelector("#MessageModal").classList.remove("active");
-      document.querySelector("#MessageModal").classList.remove("fade");
-    }, 1);
-  }, 1500);
-}
+// function showModal() {
+//   document.querySelector("#MessageModal").classList.add("active");
+//   setTimeout(function () {
+//     document.querySelector("#MessageModal").classList.add("fade");
+//     setTimeout(function () {
+//       document.querySelector("#MessageModal").classList.remove("active");
+//       document.querySelector("#MessageModal").classList.remove("fade");
+//     }, 1);
+//   }, 222200);
+// }

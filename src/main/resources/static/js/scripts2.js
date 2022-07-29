@@ -25,7 +25,8 @@ $(function () {
 });
 
 
-var showErrorModal = (type = "", message = "") => {
+var showModal = (type = "", message = "" , user) => {
+    if(user){
     const MessageModal = document.querySelector("#MessageModal");
     const modalimage = document.querySelector("#modal-image");
   
@@ -52,5 +53,8 @@ var showErrorModal = (type = "", message = "") => {
         }, 1300);
     }
     , 1100);
+    }else{
+        
+    }
   
   }

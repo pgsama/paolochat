@@ -80,12 +80,20 @@ $.fn.center = function () {
 }
 
 
+var showModal = (type = "", message = "" , user) => {
+    let MessageModal = document.querySelector("#MessageModal");
 
-var showErrorModal = (type = "", message = "") => {
+    if(MessageModal){
+        MessageModal?.remove();
+    }
     
-    const MessageModal = document.querySelector("#MessageModal");
+    Modal();
+    MessageModal = document.querySelector("#MessageModal");
     const modalimage = document.querySelector("#modal-image");
-  
+    const modalUser = document.querySelector("#modal-user");
+
+    if(!user){
+
     switch (type) {
         case "error":
             modalimage.src = "/error.png";
@@ -97,7 +105,14 @@ var showErrorModal = (type = "", message = "") => {
             modalimage.src = "/error.png";
             break;
     }
-  
+    }
+    else{
+
+        modalimage.src = user.picture;
+        modalUser.innerHTML = user.username;
+    
+    }
+
     const modaltext = document.querySelector("#modal-text");
     modaltext.innerHTML = message;
     MessageModal.classList.remove("hidden");
@@ -106,8 +121,33 @@ var showErrorModal = (type = "", message = "") => {
         MessageModal.style.top = "-50%";
         setTimeout(function () {
             MessageModal.classList.add("hidden");
-        }, 1300);
+        }, 5101);
     }
-    , 1100);
+    , 5100);
+  
   
   }
+
+
+const Modal = () => {
+    const html = `
+    <div class="modal2">
+    <div class="window-content">
+        <div class="image">
+            <img id="modal-image" src="/error.png" width="48px" />
+        </div>
+        <div class="modal-header">
+            <p id="modal-user"></p>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+    </div>`;
+    
+    const modalDiv = document.createElement("div");
+    modalDiv.innerHTML = html;
+    modalDiv.id = "MessageModal";
+    modalDiv.classList.add("messagemodal");
+    modalDiv.classList.add("hidden");
+    document.body.appendChild(modalDiv);
+
+}
