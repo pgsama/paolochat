@@ -7,7 +7,7 @@ footer{
   
   }
 #DockBar{
-    background-color: #2e29306d;
+    background-color: #bdbdbd26;
     border: 1px inset #cfcfcf3b;
     border-radius: 5px;
     top: 0.5rem;
@@ -19,7 +19,6 @@ footer{
 
 .items{
   list-style: none;
-
   display: flex;
   list-style-position: inside;
   flex-direction: row;
@@ -27,21 +26,46 @@ footer{
 }
 
 .items li{
-  max-width: 3rem;
+  display: flex;
+  transition: all 0.1s ease-in-out;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
   max-height: 3rem;
-  
+  max-width: 3rem;
+}
+
+.li-hover:hover{
+  width: 5rem;
+  transform: translateY(-2rem) translateX(-1rem);
+  cursor: pointer;
+  height: 5rem;
 }
 
 .dockImage{
-  width: 3rem;
+  width: inherit;
   transition: all 0.1s ease-in-out;
   transform: translateY(-.25rem);
   position: relative;
+  height: inherit;
+
 }
 
-.dockImage:hover{
+.dockChat{
+  width: inherit;
+  height: inherit;
+  position: absolute;
+}
+
+.dock-border{
+  border: 1px solid rgba(255, 255, 255, 0.349);
+  border-radius: 0.75rem;
+}
+
+/* 
+.dockImage:hover, .dockChat:hover{
 width: 5rem;
 transform: translateY(-2rem) translateX(-1rem);
 cursor: pointer;
-
-}
+height: 5rem;
+} */

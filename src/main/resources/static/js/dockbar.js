@@ -39,10 +39,13 @@ $("li").click(function () {
     if (rel === "contact") {
         $("#contact-page").show();
     }
-
-    if(rel === "settings" ){
+    else if(rel === "settings" ){
         OpenSettingPage();
     }
+    else{
+        newChatPage(rel);
+    }
+
     
 });
 
